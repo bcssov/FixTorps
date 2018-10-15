@@ -85,9 +85,9 @@ TorpedoFired('Fix Torp Spread: Torp Fired', App.ET_TORPEDO_FIRED, dict={'modes':
 class Watcher:
     def __init__(self):
         self.timer = None
-        self.StartTiming()
+        self.__run__()
 
-    def StartTiming(self):
+    def __run__(self):
         if self.timer:
             return
         self.timer = App.PythonMethodProcess()
@@ -126,6 +126,6 @@ class Watcher:
                                             tube.SetNumReady(newTorpCount)
                                             torpData['firedTorpedoes'] = 0
 
-                                        torpData['reloadDelay'] = torpData['reloadDelay'] - 1
+                                        torpData['reloadDelay'] = reloadDelay
             if notFound:
                 del ship[k]
